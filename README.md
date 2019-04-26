@@ -2,11 +2,15 @@
 
 Android application showing to-dos persistently as notification
 
+### Features
+* To-dos can be added and edited
+
 ### Planned Features
-To-dos can be added, edited and removed
-Easily managed which to-dos are shown as notification
-Theme changer (at minimum between light and dark)
-Export and import of backups
+* To-dos can be removed
+* Marked to-dos are shown as notification
+* Easily managed which to-dos are shown as notification
+* Theme changer (at minimum between light and dark)
+* Export and import of backups
 
 **Motivation** 
 
