@@ -7,5 +7,6 @@ interface AdapterActionListener {
 
     fun changeActiveState(memoId: Int)
     fun editMemo(memoId: Int)
+    fun storeLongClickId(memoId: Int)
 
 }

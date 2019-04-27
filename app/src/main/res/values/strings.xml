@@ -5,6 +5,7 @@
 
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_edit_title">Bearbeiten</string>
-    <string name="dialog_new_title">Neu</string>
+    <string name="dialog_new_title">Neu anlegen</string>
     <string name="dialog_edit_yes">Speichern</string>
+
 </resources>

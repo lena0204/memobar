@@ -39,7 +39,7 @@ class EditDialog: DialogFragment() {
         builder.setTitle(titleResource)
         builder.setView(dialogLayout)
         builder.setNegativeButton(R.string.dialog_cancel) { _, _ ->
-            dialog.cancel()
+            dialog?.cancel()
         }
         builder.setPositiveButton(R.string.dialog_edit_yes) { _ , _ ->
             val todo = editText.text.toString()

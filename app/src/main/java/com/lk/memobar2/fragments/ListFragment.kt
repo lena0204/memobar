@@ -28,6 +28,7 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
     private lateinit var fab: ImageButton
     private lateinit var rv: RecyclerView
     private var memos: List<MemoEntity> = listOf()
+    private var longClickId: Int = -1
 
     private lateinit var viewModel: MemoViewModel
 
@@ -43,32 +44,16 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
         super.onActivityCreated(args)
         initialiseViewModel()
         requireActivity().actionBar?.setTitle(R.string.app_name)
-        fab.setOnClickListener { view ->
+        fab.setOnClickListener {
             createNewMemo()
         }
-
-        memos = viewModel.getMemos()
         setupRecyclerAdapter()
     }
 
     private fun initialiseViewModel(){
         viewModel = ViewModelProviders.of(requireActivity()).get(MemoViewModel::class.java)
         viewModel.observeMemos(this, this)
-    }
-
-    private fun createNewMemo(){
-        val memo = MemoEntity()
-        memo.isActive = false
-        memo.lastUpdated = "00:00"  // TODO wann soll der Timestamp hinzugefügt werden??
-        callEditDialogForMemo(memo, R.string.dialog_new_title)
-    }
-
-    override fun onChanged(update: List<MemoEntity>?) {
-        Log.v(TAG, "Update, Größe: ${update?.size}")
-        if(update != null) {
-            memos = update
-            setupRecyclerAdapter()
-        }
+        memos = viewModel.getMemos()
     }
 
     private fun setupRecyclerAdapter(){
@@ -77,6 +62,24 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
         rv.adapter = adapter
     }
 
+    private fun createNewMemo(){
+        val memo = MemoEntity()
+        memo.isActive = false
+        memo.lastUpdated = "00:00"
+        callEditDialogForMemo(memo, R.string.dialog_new_title)
+    }
+
+
+
+    override fun onChanged(update: List<MemoEntity>?) {
+        Log.v(TAG, "Update of list with size: ${update?.size}")
+        if(update != null) {
+            memos = update
+            setupRecyclerAdapter()
+        }
+    }
+
+    // IDEA_NEEDED führt zu einem erneuten Aktualisierung, was die Transition der Switch ungleichmäßig aussehen lässt
     override fun changeActiveState(memoId: Int) {
         val selectedMemo = memos.find { memo -> memo.id == memoId }
         if(selectedMemo != null) {
@@ -92,6 +95,10 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
         }
     }
 
+    override fun storeLongClickId(memoId: Int) {
+        longClickId = memoId
+    }
+
     private fun callEditDialogForMemo(memo: MemoEntity, titleResource: Int) {
         val args = bundleOf(MemoEntity.MEMO_KEY to memo,
                 MainActivity.DIALOG_TITLE_RESOURCE to titleResource)
@@ -102,17 +109,16 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
         }
     }
 
+    // TODO add delete dialog or enable to revert removing
     override fun onContextItemSelected(item: MenuItem): Boolean {
         try {
-            // TODO wo kriege ich am schlausten die ausgewählte ID her??
-            /* deleteId = (rv.adapter as MemoListAdapter).selectedNoteId
             if (item.itemId == R.id.menu_delete_item) {
-                val selectedMemo = memos.find { memo -> memo.id == memoId }
+                val selectedMemo = memos.find { memo -> memo.id == longClickId }
                 if(selectedMemo != null) {
                     selectedMemo.isActive = !selectedMemo.isActive
                     viewModel.deleteMemo(selectedMemo)
                 }
-            }*/
+            }
         } catch (ex: Exception) {
             Log.d(TAG, ex.localizedMessage + "; " + ex.message)
         }

@@ -1,0 +1,37 @@
+
+d
+4app/src/test/java/com/lk/memobar2/ExampleUnitTest.kt,b/c/bc42000003732cf742adaba5514a4394455e8d1c
+s
+Capp/src/androidTest/java/com/lk/memobar2/ExampleInstrumentedTest.kt,4/c/4c05f82b675e311ad59cd418974d3bb41d92a720
+@
+app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
+P
+ app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
+l
+<app/src/main/java/com/lk/memobar2/adapters/ViewHolderMemo.kt,b/5/b5e8cd4ebaebcfcec2f26935ee79506b78eae959
+m
+=app/src/main/java/com/lk/memobar2/adapters/MemoListAdapter.kt,6/4/64e3971b60ce46bb1c3864b35b525ee6fe6883c1
+f
+6app/src/main/java/com/lk/memobar2/database/DAOMemos.kt,9/e/9e706ac8b70c4edddb80a0fcee1774209f26ad60
+p
+@app/src/main/java/com/lk/memobar2/database/DatabaseRepository.kt,e/1/e122f2db0ebdaf41568138f8ef7536a77ed167e4
+j
+:app/src/main/java/com/lk/memobar2/database/MemoDatabase.kt,4/5/45ca5843b6789aaa7c52abfd14153907bba36ffc
+h
+8app/src/main/java/com/lk/memobar2/database/MemoEntity.kt,c/f/cf771511b1e09a321b2479ced28144bb89ea8fcb
+l
+<app/src/main/java/com/lk/memobar2/database/MemoRepository.kt,0/f/0f5db02215bfd00dbf26739b97c6c8d431994a05
+g
+7app/src/main/java/com/lk/memobar2/dialogs/EditDialog.kt,a/6/a6524e2ce3d27188af8d11a37ad4d58901be3ff9
+k
+;app/src/main/java/com/lk/memobar2/fragments/ListFragment.kt,c/5/c566c47cc7d1dd4823693a5a01e97a31dd4cf33e
+o
+?app/src/main/java/com/lk/memobar2/fragments/SettingsFragment.kt,6/6/6685ce49aa1668437fdecfe78f58e9370a0b5315
+f
+6app/src/main/java/com/lk/memobar2/main/MainActivity.kt,e/e/eeb6cb6a708177de95bfc297bbb1f7bc463c2551
+g
+7app/src/main/java/com/lk/memobar2/main/MemoViewModel.kt,f/b/fb50cbee3b441e30bf27975911e8fad237ded949
+9
+	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+s
+Capp/src/main/java/com/lk/memobar2/adapters/AdapterActionListener.kt,7/b/7bfd11c7a938c557fcb1706641c95fe983663fd0

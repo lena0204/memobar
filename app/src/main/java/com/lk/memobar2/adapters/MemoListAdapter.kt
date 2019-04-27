@@ -9,21 +9,21 @@ import com.lk.memobar2.database.MemoEntity
  * Erstellt von Lena am 26/04/2019.
  */
 class MemoListAdapter(private val memoList: List<MemoEntity>, private val listener: AdapterActionListener) :
-    RecyclerView.Adapter<ViewHolderMemo>() {
+    RecyclerView.Adapter<AdapterViewHolder>() {
 
     override fun getItemCount(): Int = memoList.size
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolderMemo {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AdapterViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.view_recyclerlist,
             parent, false)
-        return ViewHolderMemo(v, listener)
+        return AdapterViewHolder(v, listener)
     }
 
-    override fun onBindViewHolder(holder: ViewHolderMemo, position: Int) {
+    override fun onBindViewHolder(holder: AdapterViewHolder, position: Int) {
         val currentMemo = memoList[position]
         holder.tvId.text = currentMemo.id.toString()
         holder.tvContent.text = currentMemo.content
-        holder.cbActive.isChecked = currentMemo.isActive
+        holder.toggleActive.isChecked = currentMemo.isActive
     }
 
 }

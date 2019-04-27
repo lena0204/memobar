@@ -29,9 +29,10 @@ class MemoViewModel(application: Application): AndroidViewModel(application) {
         if(content.isNotEmpty()) {
             memo.content = content
         }
+        memo.setCurrentTimeStamp()
         val selectedMemo = getMemos().find { memoItem -> memoItem.id == memo.id }
-        if(selectedMemo == null) {
-            // Memo not found, insert
+        if(selectedMemo == null && content.isNotEmpty()) {
+            // Memo not found and content isn't empty, insert
             insertMemo(memo)
         } else {
             // Memo found, update
