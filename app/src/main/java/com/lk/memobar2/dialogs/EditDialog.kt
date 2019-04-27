@@ -31,6 +31,8 @@ class EditDialog: DialogFragment() {
         return buildDialog(title, memo!!.content)
     }
 
+    // TODO different design: bigger, fullscreen, sharper corner, bigger input??
+
     private fun buildDialog(titleResource: Int, content: String): Dialog {
         val builder = AlertDialog.Builder(requireActivity())
         val dialogLayout = requireActivity().layoutInflater.inflate(R.layout.dialog_edit, null)
