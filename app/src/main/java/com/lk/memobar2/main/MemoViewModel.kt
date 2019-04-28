@@ -10,7 +10,7 @@ import com.lk.memobar2.database.*
 class MemoViewModel(application: Application): AndroidViewModel(application) {
 
     private val TAG = "MemoViewModel"
-    private val repository: MemoRepository = DatabaseRepository(application)
+    private val repository: DataRepository = LocalDBRepository(application)
     private val liveMemos = repository.getMemos()
 
     fun getMemos(): List<MemoEntity>{

@@ -8,7 +8,7 @@ import kotlinx.coroutines.*
 /**
  * Erstellt von Lena am 26/04/2019.
  */
-class DatabaseRepository(application: Context): MemoRepository {
+class LocalDBRepository(application: Context): DataRepository {
 
     private val TAG = "MemoRepository"
 
@@ -19,11 +19,6 @@ class DatabaseRepository(application: Context): MemoRepository {
     override fun getMemos(): LiveData<List<MemoEntity>> {
         Log.d(TAG, "Amount of memos: ${memos.value?.size}")
         return memos
-    }
-
-    override fun getMemosList(): List<MemoEntity>? {
-        Log.d(TAG, "Amount of memos: ${memos.value?.size}")
-        return memos.value
     }
 
     override fun insertMemo(memo: MemoEntity) {

@@ -12,6 +12,7 @@ abstract class MemoDatabase: RoomDatabase() {
     abstract fun memoDao(): DAOMemos
 
     companion object {
+
         @Volatile
         private var INSTANCE: MemoDatabase? = null
 

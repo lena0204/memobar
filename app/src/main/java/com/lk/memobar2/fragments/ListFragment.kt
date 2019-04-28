@@ -20,7 +20,7 @@ import com.lk.memobar2.main.*
 /**
  * Erstellt von Lena am 26/04/2019.
  */
-class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListener {
+class ListFragment : Fragment(), Observer<List<MemoEntity>>, AdapterActionListener {
 
     private val TAG = "ListFragment"
 
@@ -31,7 +31,11 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
 
     private lateinit var viewModel: MemoViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, args: Bundle?): View? {
+    override fun onCreateView (
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        args: Bundle?
+    ): View? {
         val rootView = inflater.inflate(R.layout.fragment_recyclerlist, container, false)
         fab = rootView.findViewById<View>(R.id.fab_add_memo) as ImageButton
         rv = rootView.findViewById<View>(R.id.rv_list) as RecyclerView
@@ -49,19 +53,19 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
         setupRecyclerAdapter()
     }
 
-    private fun initialiseViewModel(){
+    private fun initialiseViewModel() {
         viewModel = ViewModelProviders.of(requireActivity()).get(MemoViewModel::class.java)
         viewModel.observeMemos(this, this)
         memos = viewModel.getMemos()
     }
 
-    private fun setupRecyclerAdapter(){
+    private fun setupRecyclerAdapter() {
         val adapter = MemoListAdapter(memos, this)
         rv.layoutManager = LinearLayoutManager(activity)
         rv.adapter = adapter
     }
 
-    private fun createNewMemo(){
+    private fun createNewMemo() {
         val memo = MemoEntity()
         memo.isActive = false
         memo.lastUpdated = "00:00"
@@ -69,19 +73,17 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
     }
 
 
-
     override fun onChanged(update: List<MemoEntity>?) {
         Log.v(TAG, "Update of list with size: ${update?.size}")
-        if(update != null) {
+        if (update != null) {
             memos = update
             setupRecyclerAdapter()
         }
     }
 
-    // IDEA_NEEDED führt zu einem erneuten Aktualisierung, was die Transition der Switch ungleichmäßig aussehen lässt
     override fun changeActiveState(memoId: Int) {
         val selectedMemo = memos.find { memo -> memo.id == memoId }
-        if(selectedMemo != null) {
+        if (selectedMemo != null) {
             selectedMemo.isActive = !selectedMemo.isActive
             viewModel.updateMemo(selectedMemo)
         }
@@ -89,7 +91,7 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
 
     override fun editMemo(memoId: Int) {
         val selectedMemo = memos.find { memo -> memo.id == memoId }
-        if(selectedMemo != null) {
+        if (selectedMemo != null) {
             callEditDialogForMemo(selectedMemo, R.string.dialog_edit_title)
         }
     }
@@ -99,8 +101,10 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
     }
 
     private fun callEditDialogForMemo(memo: MemoEntity, titleResource: Int) {
-        val args = bundleOf(Utils.MEMO_KEY to memo,
-                Utils.DIALOG_TITLE_RESOURCE to titleResource)
+        val args = bundleOf(
+            Utils.MEMO_KEY to memo,
+            Utils.DIALOG_TITLE_RESOURCE to titleResource
+        )
         val editDialog = EditDialog()
         editDialog.arguments = args
         requireActivity().supportFragmentManager.transaction {
@@ -110,16 +114,12 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
 
     // TODO add delete dialog or enable to revert removing
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        try {
-            if (item.itemId == R.id.menu_delete_item) {
-                val selectedMemo = memos.find { memo -> memo.id == longClickId }
-                if(selectedMemo != null) {
-                    selectedMemo.isActive = !selectedMemo.isActive
-                    viewModel.deleteMemo(selectedMemo)
-                }
+        if (item.itemId == R.id.menu_delete_item) {
+            val selectedMemo = memos.find { memo -> memo.id == longClickId }
+            if (selectedMemo != null) {
+                selectedMemo.isActive = !selectedMemo.isActive
+                viewModel.deleteMemo(selectedMemo)
             }
-        } catch (ex: Exception) {
-            Log.d(TAG, ex.localizedMessage + "; " + ex.message)
         }
         return super.onContextItemSelected(item)
     }

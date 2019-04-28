@@ -1,11 +1,16 @@
 <resources>
     <string name="app_name">MemoBar 2</string>
 
+    <!-- Menu -->
     <string name="menu_delete">Löschen</string>
 
+    <!-- Edit dialog -->
     <string name="dialog_cancel">Abbrechen</string>
     <string name="dialog_edit_title">Bearbeiten</string>
     <string name="dialog_new_title">Neu anlegen</string>
     <string name="dialog_edit_yes">Speichern</string>
 
+    <!-- Notification -->
+    <string name="channel_title">Memo-Benachrichtigung</string>
+    <string name="channel_info">Zeigt die aktuellen Memos permanent an</string>
 </resources>

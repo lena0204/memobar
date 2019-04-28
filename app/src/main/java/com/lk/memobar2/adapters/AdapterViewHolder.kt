@@ -19,17 +19,19 @@ class AdapterViewHolder(v: View, listener: AdapterActionListener):
 
     init {
         toggleActive.setOnClickListener {
-            listener.changeActiveState(tvId.text.toString().toInt())
+            listener.changeActiveState(getCurrentId())
         }
         tvContent.setOnClickListener {
-            listener.editMemo(tvId.text.toString().toInt())
+            listener.editMemo(getCurrentId())
         }
         tvContent.setOnLongClickListener {
-            listener.storeLongClickId(tvId.text.toString().toInt())
+            listener.storeLongClickId(getCurrentId())
             false
         }
         v.setOnCreateContextMenuListener(this)
     }
+
+    private fun getCurrentId(): Int = tvId.text.toString().toInt()
 
     override fun onCreateContextMenu(contextMenu: ContextMenu,
                                      view: View,

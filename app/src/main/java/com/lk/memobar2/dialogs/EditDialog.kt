@@ -31,12 +31,12 @@ class EditDialog: DialogFragment() {
     }
 
     // TODO different design: bigger, fullscreen, sharper corner, bigger input??
-
     private fun buildDialog(titleResource: Int, content: String): Dialog {
-        val builder = AlertDialog.Builder(requireActivity())
         val dialogLayout = requireActivity().layoutInflater.inflate(R.layout.dialog_edit, null)
         val editText = dialogLayout.findViewById<EditText>(R.id.et_dialog_edit)
         editText.setText(content, TextView.BufferType.EDITABLE)
+
+        val builder = AlertDialog.Builder(requireActivity())
         builder.setTitle(titleResource)
         builder.setView(dialogLayout)
         builder.setNegativeButton(R.string.dialog_cancel) { _, _ ->

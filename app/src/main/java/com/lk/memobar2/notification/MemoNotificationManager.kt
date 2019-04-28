@@ -24,15 +24,15 @@ class MemoNotificationManager(private val context: Context) {
         }
     }
 
-    private fun launchNotification(not: Notification) {
-        not.flags = Notification.FLAG_NO_CLEAR
-        systemNotManager.notify(MemosNotification.NOTIFICATION_ID, not)
-    }
-
     fun handleMemosUpdate(memos: String){
         val notification =
             MemosNotification.buildNotification(context, memos)
         launchNotification(notification)
+    }
+
+    private fun launchNotification(not: Notification) {
+        not.flags = Notification.FLAG_NO_CLEAR
+        systemNotManager.notify(MemosNotification.NOTIFICATION_ID, not)
     }
 
 }

@@ -4,7 +4,7 @@ import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.os.Build
-import android.util.Log
+import androidx.annotation.RequiresApi
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
 import com.lk.memobar2.main.MainActivity
@@ -17,9 +17,9 @@ import java.lang.StringBuilder
 object MemosNotification {
 
     private const val TAG = "MemosNotification"
-    const val NOTIFICATION_ID: Int = 1001
     private const val CHANNEL_ID: String = "com.lk.memobar2.memonotification"
-    private const val LAUNCH_ACTION: String = "com.lk.memobar2.launch"
+
+    const val NOTIFICATION_ID: Int = 1001
 
     private lateinit var builder: Notification.Builder
 
@@ -38,28 +38,33 @@ object MemosNotification {
     }
 
     fun buildNotification(context: Context, text: String): Notification {
-        createNotificationChannel(context)
+        createNotChannelIfNecessary(context)
         initialiseBuilder(context)
         setContent(text, context)
         return builder.build()
     }
 
-    // TODO make Channel describtions localised
-    private fun createNotificationChannel(context: Context){
+    private fun createNotChannelIfNecessary(context: Context){
         if(Utils.isBuildVersionGreaterThan(Build.VERSION_CODES.O)) {
             val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
             if(manager.getNotificationChannel(CHANNEL_ID) == null) {
-                val channel = NotificationChannel(
-                    CHANNEL_ID,
-                    "Memo notifications",
-                    NotificationManager.IMPORTANCE_NONE
-                )
-                channel.description = "Show currently active memos"
-                channel.setShowBadge(false)
-                channel.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
-                manager.createNotificationChannel(channel)
+                createNotificationChannel(manager, context)
             }
         }
+    }
+
+    @RequiresApi(26)
+    private fun createNotificationChannel(manager: NotificationManager, context: Context){
+        val resources = context.resources
+        val channel = NotificationChannel(
+            CHANNEL_ID,
+            resources.getString(R.string.channel_title),
+            NotificationManager.IMPORTANCE_NONE
+        )
+        channel.description = resources.getString(R.string.channel_info)
+        channel.setShowBadge(false)
+        channel.lockscreenVisibility = Notification.VISIBILITY_PUBLIC
+        manager.createNotificationChannel(channel)
     }
 
     private fun initialiseBuilder(context: Context){

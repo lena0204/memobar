@@ -5,11 +5,9 @@ import androidx.lifecycle.LiveData
 /**
  * Erstellt von Lena am 26/04/2019.
  */
-interface MemoRepository {
+interface DataRepository {
 
     fun getMemos(): LiveData<List<MemoEntity>>
-
-    fun getMemosList(): List<MemoEntity>?
 
     fun insertMemo(memo: MemoEntity)
 
