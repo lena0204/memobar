@@ -9,6 +9,8 @@ interface MemoRepository {
 
     fun getMemos(): LiveData<List<MemoEntity>>
 
+    fun getMemosList(): List<MemoEntity>?
+
     fun insertMemo(memo: MemoEntity)
 
     fun updateMemo(memo: MemoEntity)

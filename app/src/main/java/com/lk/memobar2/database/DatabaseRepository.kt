@@ -1,6 +1,6 @@
 package com.lk.memobar2.database
 
-import android.app.Application
+import android.content.Context
 import android.util.Log
 import androidx.lifecycle.LiveData
 import kotlinx.coroutines.*
@@ -8,7 +8,7 @@ import kotlinx.coroutines.*
 /**
  * Erstellt von Lena am 26/04/2019.
  */
-class DatabaseRepository(application: Application): MemoRepository {
+class DatabaseRepository(application: Context): MemoRepository {
 
     private val TAG = "MemoRepository"
 
@@ -19,6 +19,11 @@ class DatabaseRepository(application: Application): MemoRepository {
     override fun getMemos(): LiveData<List<MemoEntity>> {
         Log.d(TAG, "Amount of memos: ${memos.value?.size}")
         return memos
+    }
+
+    override fun getMemosList(): List<MemoEntity>? {
+        Log.d(TAG, "Amount of memos: ${memos.value?.size}")
+        return memos.value
     }
 
     override fun insertMemo(memo: MemoEntity) {

@@ -15,8 +15,7 @@ import com.lk.memobar2.adapters.AdapterActionListener
 import com.lk.memobar2.database.MemoEntity
 import com.lk.memobar2.adapters.MemoListAdapter
 import com.lk.memobar2.dialogs.EditDialog
-import com.lk.memobar2.main.MainActivity
-import com.lk.memobar2.main.MemoViewModel
+import com.lk.memobar2.main.*
 
 /**
  * Erstellt von Lena am 26/04/2019.
@@ -100,8 +99,8 @@ class ListFragment: Fragment(), Observer<List<MemoEntity>>, AdapterActionListene
     }
 
     private fun callEditDialogForMemo(memo: MemoEntity, titleResource: Int) {
-        val args = bundleOf(MemoEntity.MEMO_KEY to memo,
-                MainActivity.DIALOG_TITLE_RESOURCE to titleResource)
+        val args = bundleOf(Utils.MEMO_KEY to memo,
+                Utils.DIALOG_TITLE_RESOURCE to titleResource)
         val editDialog = EditDialog()
         editDialog.arguments = args
         requireActivity().supportFragmentManager.transaction {

@@ -9,8 +9,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.ViewModelProviders
 import com.lk.memobar2.R
 import com.lk.memobar2.database.MemoEntity
-import com.lk.memobar2.main.MainActivity
-import com.lk.memobar2.main.MemoViewModel
+import com.lk.memobar2.main.*
 import java.lang.Exception
 
 /**
@@ -23,8 +22,8 @@ class EditDialog: DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         viewModel = ViewModelProviders.of(requireActivity()).get(MemoViewModel::class.java)
-        memo = arguments?.getSerializable(MemoEntity.MEMO_KEY) as MemoEntity?
-        val title = arguments?.getInt(MainActivity.DIALOG_TITLE_RESOURCE) ?: R.string.dialog_edit_title
+        memo = arguments?.getSerializable(Utils.MEMO_KEY) as MemoEntity?
+        val title = arguments?.getInt(Utils.DIALOG_TITLE_RESOURCE) ?: R.string.dialog_edit_title
         if(memo == null) {
             throw Exception("No Memo available for editing!!")
         }

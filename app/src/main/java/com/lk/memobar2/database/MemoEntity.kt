@@ -32,9 +32,4 @@ class MemoEntity : Serializable {
         val currentDate = GregorianCalendar(TimeZone.getDefault()).time
         lastUpdated = DateFormat.format("yyyy/MM/dd hh:mm:ss", currentDate).toString()
     }
-
-    companion object {
-        const val MEMO_KEY = "memo"
-    }
-
 }

@@ -7,8 +7,6 @@ Capp/src/androidTest/java/com/lk/memobar2/ExampleInstrumentedTest.kt,4/c/4c05f8
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 P
  app/src/main/AndroidManifest.xml,8/c/8c55c3ccc257e5907959013f99656e4c8ec3903e
-l
-<app/src/main/java/com/lk/memobar2/adapters/ViewHolderMemo.kt,b/5/b5e8cd4ebaebcfcec2f26935ee79506b78eae959
 m
 =app/src/main/java/com/lk/memobar2/adapters/MemoListAdapter.kt,6/4/64e3971b60ce46bb1c3864b35b525ee6fe6883c1
 f
@@ -35,3 +33,8 @@ g
 	README.md,8/e/8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 s
 Capp/src/main/java/com/lk/memobar2/adapters/AdapterActionListener.kt,7/b/7bfd11c7a938c557fcb1706641c95fe983663fd0
+o
+?app/src/main/java/com/lk/memobar2/adapters/AdapterViewHolder.kt,d/e/de15672cbd56d920bd41ecb8833e0d681e9389c9
+:
+
+.gitignore,a/5/a5cc2925ca8258af241be7e5b0381edf30266302

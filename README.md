@@ -6,9 +6,9 @@ Android application showing to-dos persistently as notification
 * To-dos can be added, edited and removed
 * List is sorted by latest content changes
 * Visibility is controlled via a checkbox
+* Marked to-dos are shown as notification
 
 ### Planned Features
-* Marked to-dos are shown as notification
 * Theme changer (at minimum between light and dark)
 * Export and import of backups
 
