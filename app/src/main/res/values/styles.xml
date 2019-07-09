@@ -1,9 +1,14 @@
 <resources>
 
     <style name="AppThemeDayNight" parent="Theme.AppCompat.DayNight.DarkActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/colorPrimary1</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark1</item>
+        <item name="colorAccent">@color/colorAccent1</item>
+        <item name="dialogCornerRadius">2dp</item>
+    </style>
+
+    <style name="CorneredDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="panelBackground">@drawable/dialog_background</item>
     </style>
 
     <!-- IDEA_ add pure black theme -->

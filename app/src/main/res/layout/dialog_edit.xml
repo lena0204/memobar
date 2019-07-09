@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clipChildren="false"
+    android:orientation="vertical">
 
     <EditText
         android:id="@+id/et_dialog_edit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:hint="Memo"
+        android:inputType="textAutoCorrect|textMultiLine|textCapSentences"
+        android:maxLines="5"
+        android:minLines="1"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="8dp"
-        android:editable="true"
-        android:maxLines="5"
-        android:minLines="1"
-        android:textIsSelectable="true"
         tools:text="@tools:sample/cities" />
 
 </LinearLayout>

@@ -15,6 +15,7 @@ import com.lk.memobar2.adapters.AdapterActionListener
 import com.lk.memobar2.database.MemoEntity
 import com.lk.memobar2.adapters.MemoListAdapter
 import com.lk.memobar2.dialogs.EditDialog
+import com.lk.memobar2.dialogs.EditDialogFullscreen
 import com.lk.memobar2.main.*
 
 /**
@@ -105,10 +106,11 @@ class ListFragment : Fragment(), Observer<List<MemoEntity>>, AdapterActionListen
             Utils.MEMO_KEY to memo,
             Utils.DIALOG_TITLE_RESOURCE to titleResource
         )
-        val editDialog = EditDialog()
+        val editDialog = EditDialogFullscreen()
         editDialog.arguments = args
+        // editDialog.show(requireFragmentManager(), "EditDialog")
         requireActivity().supportFragmentManager.transaction {
-            add(editDialog, "EditDialog")
+            add(R.id.fl_main, editDialog)
         }
     }
 

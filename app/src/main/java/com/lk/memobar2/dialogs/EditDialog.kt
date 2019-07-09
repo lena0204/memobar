@@ -1,7 +1,11 @@
 package com.lk.memobar2.dialogs
 
 import android.app.Dialog
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.view.*
+import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
@@ -20,6 +24,8 @@ class EditDialog: DialogFragment() {
     private lateinit var viewModel: MemoViewModel
     private var memo: MemoEntity? = null
 
+    private val TAG = "EditDialog"
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         viewModel = ViewModelProviders.of(requireActivity()).get(MemoViewModel::class.java)
         memo = arguments?.getSerializable(Utils.MEMO_KEY) as MemoEntity?
@@ -28,6 +34,18 @@ class EditDialog: DialogFragment() {
             throw Exception("No Memo available for editing!!")
         }
         return buildDialog(title, memo!!.content)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        // show input method
+        val editText = view.findViewById<EditText>(R.id.et_dialog_edit)
+
+        if(editText.requestFocus()) {
+            Log.v(TAG, "focus successfully requested")
+            val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
+        }
     }
 
     // TODO different design: bigger, fullscreen, sharper corner, bigger input??
@@ -46,7 +64,13 @@ class EditDialog: DialogFragment() {
             val todo = editText.text.toString()
             viewModel.updateContentOfMemo(todo, memo!!)
         }
-        return builder.create()
+        val dialog =  builder.create()
+        if(editText.requestFocus()) {
+            Log.v(TAG, "build: focus successfully requested")
+            val imm = requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(editText, InputMethodManager.SHOW_IMPLICIT)
+        }
+        return dialog
     }
 
 }

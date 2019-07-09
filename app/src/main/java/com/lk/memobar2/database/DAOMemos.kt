@@ -10,7 +10,7 @@ import androidx.room.*
 interface DAOMemos {
 
     @Insert
-    fun insertMemo(memo: MemoEntity)
+    fun insertMemo(memo: MemoEntity): Long
 
     @Delete
     fun deleteMemo(memo: MemoEntity)

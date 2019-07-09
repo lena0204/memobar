@@ -9,4 +9,9 @@
     <color name="white">#FFFFFF</color>
     <color name="grey_divider">#3aaaaaaa</color>
 
+    <color name="colorPrimary1">#795548</color>
+    <color name="colorPrimaryDark1">#5d4037</color>
+    <color name="colorAccent1">#ff3d00</color> <!-- or
+    #d50000, #dd2c00, #ff3d00-->
+
 </resources>

@@ -11,14 +11,10 @@ m
 =app/src/main/java/com/lk/memobar2/adapters/MemoListAdapter.kt,6/4/64e3971b60ce46bb1c3864b35b525ee6fe6883c1
 f
 6app/src/main/java/com/lk/memobar2/database/DAOMemos.kt,9/e/9e706ac8b70c4edddb80a0fcee1774209f26ad60
-p
-@app/src/main/java/com/lk/memobar2/database/DatabaseRepository.kt,e/1/e122f2db0ebdaf41568138f8ef7536a77ed167e4
 j
 :app/src/main/java/com/lk/memobar2/database/MemoDatabase.kt,4/5/45ca5843b6789aaa7c52abfd14153907bba36ffc
 h
 8app/src/main/java/com/lk/memobar2/database/MemoEntity.kt,c/f/cf771511b1e09a321b2479ced28144bb89ea8fcb
-l
-<app/src/main/java/com/lk/memobar2/database/MemoRepository.kt,0/f/0f5db02215bfd00dbf26739b97c6c8d431994a05
 g
 7app/src/main/java/com/lk/memobar2/dialogs/EditDialog.kt,a/6/a6524e2ce3d27188af8d11a37ad4d58901be3ff9
 k
@@ -48,3 +44,11 @@ w
 Gapp/src/main/java/com/lk/memobar2/notification/BootCompletedReceiver.kt,4/8/4882754f715cedb07b91ab30eb00bfb201b852b7
 s
 Capp/src/main/java/com/lk/memobar2/notification/MemosNotification.kt,5/1/51ce252d61ba26d73cf029a39c9a8a2e126abb79
+l
+<app/src/main/java/com/lk/memobar2/database/DataRepository.kt,0/c/0c8a66d5d9604c6fc1e37ff5c16c1411b9851eb4
+o
+?app/src/main/java/com/lk/memobar2/database/LocalDBRepository.kt,0/9/09f152dd06acfd9b244b57fa038298c3ff30ebf4
+q
+Aapp/src/main/java/com/lk/memobar2/dialogs/EditDialogFullscreen.kt,5/0/50991aa54b11b2108773ebface05cdbd938800ea
+<
+build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
