@@ -1,6 +1,7 @@
 package com.lk.memobar2.database
 
 import android.text.format.DateFormat
+import android.util.Log
 import androidx.room.*
 import java.io.Serializable
 import java.util.*
@@ -30,6 +31,6 @@ class MemoEntity : Serializable {
 
     fun setCurrentTimeStamp(){
         val currentDate = GregorianCalendar(TimeZone.getDefault()).time
-        lastUpdated = DateFormat.format("yyyy/MM/dd hh:mm:ss", currentDate).toString()
+        lastUpdated = DateFormat.format("yyyy/MM/dd HH:mm:ss", currentDate).toString()
     }
 }
