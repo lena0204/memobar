@@ -25,9 +25,11 @@ class MemoNotificationManager(private val context: Context) {
     }
 
     fun handleMemosUpdate(memos: String){
-        val notification =
-            MemosNotification.buildNotification(context, memos)
-        launchNotification(notification)
+        if(memos.trim() != "") {
+            val notification =
+                MemosNotification.buildNotification(context, memos)
+            launchNotification(notification)
+        }
     }
 
     private fun launchNotification(not: Notification) {

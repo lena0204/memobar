@@ -30,7 +30,6 @@ class MemoEntity : Serializable {
     }
 
     fun setCurrentTimeStamp(){
-        val currentDate = GregorianCalendar(TimeZone.getDefault()).time
-        lastUpdated = DateFormat.format("yyyy/MM/dd HH:mm:ss", currentDate).toString()
+        lastUpdated = DateFormat.format("yyyy/MM/dd HH:mm:ss", Date().time).toString()
     }
 }

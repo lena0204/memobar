@@ -14,7 +14,6 @@ import com.lk.memobar2.R
 import com.lk.memobar2.adapters.AdapterActionListener
 import com.lk.memobar2.database.MemoEntity
 import com.lk.memobar2.adapters.MemoListAdapter
-import com.lk.memobar2.dialogs.EditDialog
 import com.lk.memobar2.dialogs.EditDialogFullscreen
 import com.lk.memobar2.main.*
 

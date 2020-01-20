@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MemoBar 2</string>
+    <string name="app_name">MemoBar</string>
 
     <!-- Menu -->
     <string name="menu_delete">Löschen</string>
