@@ -67,7 +67,7 @@ class ListFragment : Fragment(), Observer<List<MemoEntity>>, AdapterActionListen
 
     private fun createNewMemo() {
         val memo = MemoEntity()
-        memo.isActive = false
+        memo.isActive = true    // change default value for show
         memo.lastUpdated = "00:00"
         callEditDialogForMemo(memo, R.string.dialog_new_title)
     }
