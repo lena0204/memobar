@@ -54,7 +54,7 @@ class ListFragment : Fragment(), Observer<List<MemoEntity>>, AdapterActionListen
     }
 
     private fun initialiseViewModel() {
-        viewModel = ViewModelProviders.of(requireActivity()).get(MemoViewModel::class.java)
+        viewModel = ViewModelProvider(requireActivity()).get(MemoViewModel::class.java)
         viewModel.observeMemos(this, this)
         memos = viewModel.getMemos()
     }
@@ -85,6 +85,18 @@ class ListFragment : Fragment(), Observer<List<MemoEntity>>, AdapterActionListen
         val selectedMemo = memos.find { memo -> memo.id == memoId }
         if (selectedMemo != null) {
             selectedMemo.isActive = !selectedMemo.isActive
+            viewModel.updateMemo(selectedMemo)
+        }
+    }
+
+    override fun changeImportance(memoId: Int) {
+        val selectedMemo = memos.find { memo -> memo.id == memoId }
+        if (selectedMemo != null) {
+            if(selectedMemo.importance == 0) {
+                selectedMemo.importance = -1
+            } else {
+                selectedMemo.importance = 0
+            }
             viewModel.updateMemo(selectedMemo)
         }
     }

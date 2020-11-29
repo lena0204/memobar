@@ -24,8 +24,7 @@ object MemosNotification {
     private lateinit var builder: Notification.Builder
 
     fun buildNotification(context: Context, memos: List<MemoEntity>): Notification {
-        val notificationText =
-            getNotificationStringFromList(memos)
+        val notificationText = getNotificationStringFromList(memos)
         return buildNotification(context, notificationText)
     }
 

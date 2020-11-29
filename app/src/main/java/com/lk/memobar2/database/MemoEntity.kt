@@ -25,8 +25,13 @@ class MemoEntity : Serializable {
     @ColumnInfo(name = "lastUpdated")
     var lastUpdated: String = ""
 
+    @ColumnInfo(name = "importance", defaultValue = "0")
+    var importance: Int = 0
+    // 0 -> default importance, -1 -> less important
+
     override fun toString(): String {
-        return "{id: $id, content: \"$content\", isActive: $isActive, lastUpdated: $lastUpdated}"
+        return "{id: $id, content: \"$content\", isActive: $isActive, lastUpdated: $lastUpdated," +
+            " importance $importance}"
     }
 
     fun setCurrentTimeStamp(){

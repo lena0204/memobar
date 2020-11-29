@@ -3,6 +3,7 @@ package com.lk.memobar2.main
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.commit
 import androidx.fragment.app.transaction
 import androidx.lifecycle.*
 import com.lk.memobar2.R
@@ -26,13 +27,13 @@ class MainActivity : AppCompatActivity(), Observer<List<MemoEntity>> {
     }
 
     private fun initialiseNotificationHandling(){
-        viewModel = ViewModelProviders.of(this).get(MemoViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(MemoViewModel::class.java)
         viewModel.observeMemos(this, this)
         notificationManager = MemoNotificationManager(application)
     }
 
     private fun changeToRecyclerList(){
-        supportFragmentManager.transaction {
+        supportFragmentManager.commit {
             replace(R.id.fl_main, ListFragment())
         }
     }

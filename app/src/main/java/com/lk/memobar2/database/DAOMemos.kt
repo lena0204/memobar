@@ -21,7 +21,7 @@ interface DAOMemos {
     @Query("DELETE FROM memos")
     fun deleteAll()
 
-    @Query("SELECT * FROM memos ORDER BY lastUpdated DESC")
+    @Query("SELECT * FROM memos ORDER BY importance DESC, lastUpdated DESC")
     fun selectAll(): LiveData<List<MemoEntity>>
 
 }

@@ -6,6 +6,7 @@ package com.lk.memobar2.adapters
 interface AdapterActionListener {
 
     fun changeActiveState(memoId: Int)
+    fun changeImportance(memoId: Int)
     fun editMemo(memoId: Int)
     fun storeLongClickId(memoId: Int)
 

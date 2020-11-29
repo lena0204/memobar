@@ -16,10 +16,14 @@ class AdapterViewHolder(v: View, listener: AdapterActionListener):
     val tvId: TextView = v.findViewById(R.id.tv_view_id)
     val tvContent: TextView = v.findViewById(R.id.tv_view_content)
     val toggleActive: CompoundButton = v.findViewById(R.id.toggle_view_active)
+    val toggleImportance: CompoundButton = v.findViewById(R.id.cb_change_importance)
 
     init {
         toggleActive.setOnClickListener {
             listener.changeActiveState(getCurrentId())
+        }
+        toggleImportance.setOnClickListener {
+            listener.changeImportance(getCurrentId())
         }
         tvContent.setOnClickListener {
             listener.editMemo(getCurrentId())
